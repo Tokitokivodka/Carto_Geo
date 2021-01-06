@@ -1,7 +1,12 @@
+let exo2
+let exo3
+let exo4
+
 $(document).ready(function() {
 
-    let exo2 = $('#exo2') ;
-    let exo3 = $('#exo3') ;
+    exo2 = $('#exo2') ;
+    exo3 = $('#exo3') ;
+    exo4 = $('#exo4') ;
   
     navigator.geolocation.getCurrentPosition(function(position) {
       var firstDiv = exo2.find('.fun1') ;
@@ -57,4 +62,21 @@ $(document).ready(function() {
         }, 1000);
       });
     }
+
+  window.addEventListener('touchstart', touchEventHandler) ;
+  window.addEventListener('touchend', touchEventHandler) ;
+  window.addEventListener('touchcancel', touchEventHandler) ;
+  window.addEventListener('touchleave', touchEventHandler) ;
+  window.addEventListener('touchmove', touchEventHandler) ;
   }) ;
+
+  function touchEventHandler(event) {
+    var firstDiv = exo4.find('div') ;
+    firstDiv.find('ul').empty() ;
+    firstDiv.find('ul').append(
+      "<li>Position X : " + event.changedTouches[0].screenX + "</li>",
+      "<li>Position X : " + event.changedTouches[0].screenY + "</li>",
+      "<li>Type event : " + event.type + "</li>"
+    ) ;
+  }
+  
