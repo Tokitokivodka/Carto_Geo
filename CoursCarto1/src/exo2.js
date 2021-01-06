@@ -35,7 +35,7 @@ $(document).ready(function() {
       window.addEventListener('deviceorientation', function(orientation) {
         var firstDiv = exo3.find('.func1') ;
         setTimeout(function () {
-          firstDiv.empty() ;
+          firstDiv.find('ul').empty() ;
           firstDiv.find('ul').append(
             "<li>Alpha : " + orientation.alpha + "</li>",
             "<li>Beta : " + orientation.beta + "</li>",
