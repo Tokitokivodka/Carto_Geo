@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    let exercice2 = $('#exo2') ;
-    let exercice3 = $('#exo3') ;
+    let exo2 = $('#exo2') ;
+    let exo3 = $('#exo3') ;
   
     navigator.geolocation.getCurrentPosition(function(position) {
       var firstDiv = exo2.find('.fun1') ;
