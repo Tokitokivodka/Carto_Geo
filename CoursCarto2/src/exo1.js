@@ -66,21 +66,6 @@ var mymap = L.map('mapid').setView([43.7090064,
   // Affichage du texte.
   var x = document.getElementById("demo");
   
-  // Bouton pour get la position.
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-  
-  // Bouton pour Show la position.
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude + "<br>Précision de la longitude et latitiude : " + position.coords.accuracy + "<br>Altitude : " + position.coords.altitude + "<br>Précision de l'altitude : " + position.coords.altitudeAccuracy + "<br>Distance calculée entre ma position et Marseille: " + getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,43.2976423,5.3694705) + " km.";
-  } 
-  
   // Map exo 2
   var layer = new L.StamenTileLayer("terrain");
   var mymap2 = new L.Map("mapid2", {
@@ -103,28 +88,9 @@ var mymap = L.map('mapid').setView([43.7090064,
       [18.367559, -66.533203],
       [32.150037, -64.599609]
   ], {color: 'red'}).addTo(mymap2);
-  
-  // Calcul de la distance entre deux points
-  function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(lat2-lat1);  // deg2rad below
-    var dLon = deg2rad(lon2-lon1); 
-    var a = 
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-      Math.sin(dLon/2) * Math.sin(dLon/2)
-      ; 
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-    var d = R * c; // Distance in km
-    return d;
-  }
-  
-  function deg2rad(deg) {
-    return deg * (Math.PI/180)
-  }
-  
+
   $('.btn').click(function() {
-    
+  
     $('.text').text('loading . . .');
     
     $.ajax({
@@ -138,3 +104,37 @@ var mymap = L.map('mapid').setView([43.7090064,
     
   });
 });
+
+// Bouton pour get la position.
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+// Bouton pour Show la position.
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude + "<br>Précision de la longitude et latitiude : " + position.coords.accuracy + "<br>Altitude : " + position.coords.altitude + "<br>Précision de l'altitude : " + position.coords.altitudeAccuracy + "<br>Distance calculée entre ma position et Marseille: " + getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,43.2976423,5.3694705) + " km.";
+} 
+
+// Calcul de la distance entre deux points
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance en km
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
