@@ -61,7 +61,7 @@ $(document).ready(function() {
     // Ajouter du décors
     $.ajax({
       type: "GET",
-      url: "./geojson/routes-metropolitaines-202012.geojson",
+      url: "./src/geojson/routes-metropolitaines-202012.geojson",
       success: function(data) {
         var mapVelos = L.map('pisteCyclable').setView([43.7013, 7.2681], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
