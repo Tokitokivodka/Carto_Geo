@@ -52,5 +52,9 @@ $(document).ready(function() {
     });
     StamenPos.addLayer(lay2) ;
     StamenPos.addLayer(rond) ;
+
+    let latitudedutruc = L.latLng(crd.latitude, crd.longitude);
+    let distancationdesecurelol = latitudedutruc.distanceTo(L.latLng(43.2969500, 5.3810700));
+    $("#distance").text(distancationdesecurelol);
   });
 }) ;
