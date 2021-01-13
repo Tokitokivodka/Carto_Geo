@@ -3,7 +3,7 @@ $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(function(position){
 
     console.log(position) ;
-    // Exercie 1
+    // Exo 1
     //OpenStreetMap
     var mapOSM = L.map('mapOSM').setView([position.coords.latitude, position.coords.longitude], 10);
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
     .bindPopup("Nice")
     .openPopup();
 
-    // Exercice 2
+    // Exo 2
     // Stamen's map
     const triangleCoords = [
       { lat: 25.774, lng: -80.19 },
@@ -53,8 +53,25 @@ $(document).ready(function() {
     StamenPos.addLayer(lay2) ;
     StamenPos.addLayer(rond) ;
 
-    let latitudedutruc = L.latLng(crd.latitude, crd.longitude);
+    let latitudedutruc = L.latLng(position.coords.latitude, position.coords.longitude);
     let distancationdesecurelol = latitudedutruc.distanceTo(L.latLng(43.2969500, 5.3810700));
     $("#distance").text(distancationdesecurelol);
+
+    // Exo3
+    // Ajouter du décors
+    $.ajax({
+      type: "GET",
+      url: "./geojson/routes-metropolitaines-202012.geojson",
+      success: function(data) {
+        var mapVelos = L.map('pisteCyclable').setView([43.7013, 7.2681], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a> contributors',
+          maxZoom: 15
+        }).addTo(mapVelos);
+        L.geoJSON(JSON.parse(data), {
+          color: 'purple'
+        }).addTo(mapVelos);
+      }
+    }) ;
   });
 }) ;
