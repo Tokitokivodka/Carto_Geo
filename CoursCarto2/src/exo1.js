@@ -63,14 +63,14 @@ $(document).ready(function() {
       type: "GET",
       url: "./src/geojson/routes-metropolitaines-202012.geojson",
       success: function(data) {
-        var mapVelos = L.map('pisteCyclable').setView([43.7013, 7.2681], 10);
+        var mapVroumVroum = L.map('goesVroum').setView([43.7013, 7.2681], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a> contributors',
           maxZoom: 15
-        }).addTo(mapVelos);
+        }).addTo(mapVroumVroum);
         L.geoJSON(JSON.parse(data), {
           color: 'purple'
-        }).addTo(mapVelos);
+        }).addTo(mapVroumVroum);
       }
     }) ;
   });
