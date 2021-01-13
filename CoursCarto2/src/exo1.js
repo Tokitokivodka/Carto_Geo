@@ -69,7 +69,7 @@ $(document).ready(function() {
           maxZoom: 15
         }).addTo(mapVroumVroum);
         L.geoJSON(JSON.parse(data), {
-          color: 'purple'
+          color: 'yellow'
         }).addTo(mapVroumVroum);
       }
     }) ;
