@@ -7,7 +7,7 @@ $(document).ready(function() {
     //OpenStreetMap
     var mapOSM = L.map('mapOSM').setView([position.coords.latitude, position.coords.longitude], 10);
 
-    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
+    L.tileLayer('https://stamen-tiles-{S}a.ssl.fastly.net/', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 15
     }).addTo(mapOSM);
