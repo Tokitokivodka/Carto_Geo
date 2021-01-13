@@ -13,7 +13,7 @@ $(document).ready(function() {
     }).addTo(mapOSM);
 
     L.marker([position.coords.latitude, position.coords.longitude]).addTo(mapOSM)
-    .bindPopup('Vous êtes ici!')
+    .bindPopup('On sait que tu te trouve ici, On vient pour toi...')
     .openPopup();
 
     L.marker([43.7013, 7.2681]).addTo(mapOSM)
