@@ -1,0 +1,16 @@
+#p {
+  fill:#7100FF;
+}
+#p:hover {
+  fill: #0500FF ;
+}
+.day {
+  fill:#0CC1F3;
+}
+.night {
+  fill: #D8D8D8;
+}
+body {
+  text-align: center;
+  margin: 0;
+}
