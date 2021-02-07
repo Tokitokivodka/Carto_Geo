@@ -42,7 +42,7 @@
     const pos = _convertLatLonToVec3(position.coords.latitude, position.coords.longitude) ;
 
     const gltfLoader = new THREE.GLTFLoader();
-    gltfLoader.load('./models/Duck.gltf', function(gltf) {
+    gltfLoader.load('./src/models/Duck.gltf', function(gltf) {
       console.log( gltf ) ;
       var duck = gltf.scene ;
       duck.scale.set(0.02, 0.02, 0.02) ;
