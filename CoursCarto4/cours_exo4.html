@@ -31,9 +31,9 @@
   const geometry = new THREE.SphereGeometry(1, 32, 32);
   const texture = new THREE.TextureLoader().load( './src/textures/earth_texture.jpg' );
   const materialTex = new THREE.MeshBasicMaterial( { map: texture } );
-  const terre = new THREE.Mesh( geometry, materialTex );
+  const t = new THREE.Mesh( geometry, materialTex );
 
-  scene.add( terre ) ;
+  scene.add( t ) ;
 
   const controls = new THREE.OrbitControls( camera, renderer.domElement );
 
