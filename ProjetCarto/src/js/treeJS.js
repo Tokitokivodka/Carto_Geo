@@ -11,7 +11,7 @@ $(document).ready(function() {
     scene.add( light );
   
     const gltfLoader = new THREE.GLTFLoader();
-    gltfLoader.load('./models/Duck.gltf', function(gltf) {
+    gltfLoader.load('../models/Duck.gltf', function(gltf) {
       scene.add( gltf.scene ) ;
     },
     function ( xhr ) {

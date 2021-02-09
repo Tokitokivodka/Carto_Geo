@@ -8,7 +8,7 @@ body {
     margin: auto ;
     width: 500px ;
     height: 500px ;
-    background: url('../src/images/compass.svg') ;
+    background: url('../image/compass.svg') ;
     background-repeat: no-repeat;
     background-size: contain;
   }
