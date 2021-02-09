@@ -4,8 +4,8 @@ $(document).ready(function() {
     var ctx = canvas.getContext('2d');
     var boussole = new Image();
     var aiguille = new Image() ;
-    boussole.src = '../image/compass.png' ;
-    aiguille.src = '../image/needle.png' ;
+    boussole.src = './image/compass.png' ;
+    aiguille.src = './image/needle.png' ;
   
     if(window.DeviceOrientationEvent) {
       window.addEventListener('deviceorientation', function(orientation) {
